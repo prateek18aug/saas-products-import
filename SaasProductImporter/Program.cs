@@ -27,19 +27,19 @@
 
             var inputParser = container.Resolve<IUserInputParser>();
             var companyName = inputParser.GetCompanyName(inputString);
-            var filePath = inputParser.GetFilePath(inputString);
+            var fileName = inputParser.GetFileName(inputString);
 
-            StartProcessing(container, companyName, filePath);
+            StartProcessing(container, companyName, fileName);
         }
 
         private static void StartProcessing(
             IContainer container,
             string companyName,
-            string filePath)
+            string fileName)
         {
             var productSource = container.ResolveKeyed<IProductParser>(companyName);
             var dataAccessFactory = container.Resolve<IDataAccessFactory>();
-            var productRoot = productSource.DeserializeFileContent(filePath);
+            var productRoot = productSource.DeserializeFileContent(fileName);
             var dataAccess = dataAccessFactory.Create();
 
             productSource.PrintProductDetails(productRoot);

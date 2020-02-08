@@ -2,7 +2,7 @@
 {
     public interface IUserInputParser
     {
-        string GetFilePath(string inputString);
+        string GetFileName(string inputString);
         string GetCompanyName(string inputString);
     }
 }

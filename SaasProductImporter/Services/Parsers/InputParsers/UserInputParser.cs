@@ -11,7 +11,7 @@
             this.appSettings = appSettings;
         }
 
-        public string GetFilePath(string inputString)
+        public string GetFileName(string inputString)
         {
             return inputString.Split('/').ToArray().LastOrDefault();
         }
