@@ -1,6 +1,7 @@
 ﻿namespace SaasProductImporter.Services.Parsers.ProductParsers
 {
     using SaasProductImporter.Application.Factories;
+    using SaasProductImporter.Application.Serializers;
     using SaasProductImporter.Models;
     using SaasProductImporter.Services.Parsers.InputParsers;
     using System;
@@ -22,7 +23,7 @@
 
         public abstract string GetProductDetail(Product product);
 
-        protected Serializers.ISerializer ResolveSerializer(string fileName)
+        protected ISerializer ResolveSerializer(string fileName)
         {
             var fileType = userInputParser.GetFileType(fileName);
             return serializerFactory.Create(fileType);

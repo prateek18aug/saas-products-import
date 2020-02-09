@@ -1,7 +1,7 @@
 ﻿namespace SaasProductImporter.Application.Factories
 {
     using Autofac;
-    using SaasProductImporter.Services.Serializers;
+    using SaasProductImporter.Application.Serializers;
 
     public class SerializerFactory : ISerializerFactory
     {

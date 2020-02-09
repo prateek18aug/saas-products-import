@@ -1,6 +1,6 @@
 ﻿namespace SaasProductImporter.Application.Factories
 {
-    using SaasProductImporter.Services.Serializers;
+    using SaasProductImporter.Application.Serializers;
 
     public interface ISerializerFactory
     {

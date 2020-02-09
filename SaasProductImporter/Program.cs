@@ -5,10 +5,10 @@
     using Microsoft.Extensions.Configuration;
     using SaasProductImporter.Application.Configs;
     using SaasProductImporter.Application.Factories;
+    using SaasProductImporter.Application.Serializers;
     using SaasProductImporter.DataAccess;
     using SaasProductImporter.Services.Parsers.InputParsers;
     using SaasProductImporter.Services.Parsers.ProductParsers;
-    using SaasProductImporter.Services.Serializers;
     using System;
 
     class Program

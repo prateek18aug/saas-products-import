@@ -1,4 +1,4 @@
-﻿namespace SaasProductImporter.Services.Serializers
+﻿namespace SaasProductImporter.Application.Serializers
 {
     using Newtonsoft.Json;
 
