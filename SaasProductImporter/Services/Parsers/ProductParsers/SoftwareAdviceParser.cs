@@ -16,8 +16,8 @@
 
         public override ProductsRoot DeserializeFileContent(string fileName)
         {
-            var fileContent = FileHelper.GetContent(fileName);
             var serializer = ResolveSerializer(fileName);
+            var fileContent = FileHelper.GetContent(fileName);
 
             return serializer.Deserialize<ProductsRoot>(fileContent);
         }

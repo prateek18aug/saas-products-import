@@ -17,6 +17,7 @@
             this.serializerFactory = serializerFactory;
             this.userInputParser = userInputParser;
         }
+
         public abstract ProductsRoot DeserializeFileContent(string fileName);
 
         public abstract string GetProductDetail(Product product);

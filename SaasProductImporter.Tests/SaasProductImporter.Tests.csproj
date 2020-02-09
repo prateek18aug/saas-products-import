@@ -68,14 +68,13 @@
   <ItemGroup>
     <Compile Include="Services\Parsers\InputParsers\UserInputParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Parsers\ProductParsers\CapterraParserTests.cs" />
+    <Compile Include="Services\Parsers\ProductParsers\SoftwareAdviceParserTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataAccess\" />
-    <Folder Include="Services\Parsers\ProductParsers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\SaasProductImporter\SaasProductImporter.csproj">
       <Project>{7FBE1FD3-7307-4DF3-A90E-075FC37C26D3}</Project>

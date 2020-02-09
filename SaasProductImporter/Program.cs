@@ -22,15 +22,23 @@
 
             var container = ConfigureContainer(configuration);
 
-            ///var inputString = "import capterra feed-products/capterra.yaml";
-            Console.WriteLine("Enter input:");
-            var inputString = Console.ReadLine();
+            try
+            {
+                Console.WriteLine("Enter input:");
+                Console.WriteLine("Please enter input in the following format: import capterra feed-products/capterra.yaml");
+                var inputString = Console.ReadLine();
 
-            var inputParser = container.Resolve<IUserInputParser>();
-            var companyName = inputParser.GetCompanyName(inputString);
-            var fileName = inputParser.GetFileName(inputString);
+                var inputParser = container.Resolve<IUserInputParser>();
+                var companyName = inputParser.GetCompanyName(inputString);
+                var fileName = inputParser.GetFileName(inputString);
 
-            StartProcessing(container, companyName, fileName);
+                StartProcessing(container, companyName, fileName);
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.ToString());
+                throw;
+            }
         }
 
         private static void StartProcessing(
