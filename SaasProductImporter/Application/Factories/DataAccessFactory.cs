@@ -9,7 +9,7 @@
         private readonly IAppSettings appSettings;
         private readonly IComponentContext componentContext;
 
-        public DataAccessFactory(IComponentContext componentContext,IAppSettings appSettings)
+        public DataAccessFactory(IComponentContext componentContext, IAppSettings appSettings)
         {
             this.appSettings = appSettings;
             this.componentContext = componentContext;

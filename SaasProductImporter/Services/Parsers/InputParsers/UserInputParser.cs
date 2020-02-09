@@ -13,7 +13,12 @@
 
         public string GetFileName(string inputString)
         {
-            return inputString.Split('/').ToArray().LastOrDefault();
+            return inputString.Split('/').LastOrDefault();
+        }
+
+        public string GetFileType(string inputString)
+        {
+            return inputString.Split('.').LastOrDefault();
         }
 
         public string GetCompanyName(string inputString)

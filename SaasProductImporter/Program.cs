@@ -8,6 +8,7 @@
     using SaasProductImporter.DataAccess;
     using SaasProductImporter.Services.Parsers.InputParsers;
     using SaasProductImporter.Services.Parsers.ProductParsers;
+    using SaasProductImporter.Services.Serializers;
     using System;
 
     class Program
@@ -37,13 +38,13 @@
             string companyName,
             string fileName)
         {
-            var productSource = container.ResolveKeyed<IProductParser>(companyName);
+            var productParser = container.ResolveKeyed<IProductParser>(companyName);
             var dataAccessFactory = container.Resolve<IDataAccessFactory>();
-            var productRoot = productSource.DeserializeFileContent(fileName);
+            var productsRoot = productParser.DeserializeFileContent(fileName);
             var dataAccess = dataAccessFactory.Create();
 
-            productSource.PrintProductDetails(productRoot);
-            dataAccess.Insert(productRoot);
+            productParser.PrintProductDetails(productsRoot);
+            dataAccess.Insert(productsRoot);
         }
 
         private static IContainer ConfigureContainer(IConfigurationRoot configuration)
@@ -57,6 +58,9 @@
             builder.RegisterType<MongoDataAccess>().Named<IDataAccess>("mongo").SingleInstance();
             builder.RegisterType<MySqlDataAccess>().Named<IDataAccess>("mysql").SingleInstance();
             builder.RegisterType<DataAccessFactory>().As<IDataAccessFactory>().SingleInstance();
+            builder.RegisterType<SerializerFactory>().As<ISerializerFactory>().SingleInstance();
+            builder.RegisterType<JsonSerializer>().Named<ISerializer>("json").SingleInstance();
+            builder.RegisterType<YamlSerializer>().Named<ISerializer>("yaml").SingleInstance();
             return builder.Build();
         }
     }

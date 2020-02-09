@@ -1,15 +1,25 @@
 ﻿namespace SaasProductImporter.Services.Parsers.ProductParsers
 {
-    using Newtonsoft.Json;
+    using SaasProductImporter.Application.Factories;
     using SaasProductImporter.Application.Utilities;
     using SaasProductImporter.Models;
+    using SaasProductImporter.Services.Parsers.InputParsers;
 
     public class SoftwareAdviceParser : ProductParser, IProductParser
     {
+        public SoftwareAdviceParser(
+            ISerializerFactory serializerFactory,
+            IUserInputParser userInputParser)
+            : base(serializerFactory, userInputParser)
+        {
+        }
+
         public override ProductsRoot DeserializeFileContent(string fileName)
         {
             var fileContent = FileHelper.GetContent(fileName);
-            return JsonConvert.DeserializeObject<ProductsRoot>(fileContent);
+            var serializer = ResolveSerializer(fileName);
+
+            return serializer.Deserialize<ProductsRoot>(fileContent);
         }
 
         public override string GetProductDetail(Product product)

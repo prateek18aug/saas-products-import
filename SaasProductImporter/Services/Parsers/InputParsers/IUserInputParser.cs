@@ -4,5 +4,6 @@
     {
         string GetFileName(string inputString);
         string GetCompanyName(string inputString);
+        string GetFileType(string inputString);
     }
 }

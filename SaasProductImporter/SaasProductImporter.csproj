@@ -123,6 +123,8 @@
     <Compile Include="Application\Configs\IAppSettings.cs" />
     <Compile Include="Application\Factories\DataAccessFactory.cs" />
     <Compile Include="Application\Factories\IDataAccessFactory.cs" />
+    <Compile Include="Application\Factories\ISerializerFactory.cs" />
+    <Compile Include="Application\Factories\SerializerFactory.cs" />
     <Compile Include="Application\Utilities\FileHelper.cs" />
     <Compile Include="DataAccess\IDataAccess.cs" />
     <Compile Include="DataAccess\MongoDataAccess.cs" />
@@ -137,6 +139,9 @@
     <Compile Include="Services\Parsers\ProductParsers\SoftwareAdviceParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Serializers\ISerializer.cs" />
+    <Compile Include="Services\Serializers\JsonSerializer.cs" />
+    <Compile Include="Services\Serializers\YamlSerializer.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,21 +1,28 @@
 ﻿namespace SaasProductImporter.Services.Parsers.ProductParsers
 {
+    using SaasProductImporter.Application.Factories;
     using SaasProductImporter.Application.Utilities;
     using SaasProductImporter.Models;
+    using SaasProductImporter.Services.Parsers.InputParsers;
     using System.Collections.Generic;
-    using YamlDotNet.Serialization;
 
     public class CapterraParser : ProductParser, IProductParser
     {
+        public CapterraParser(
+            ISerializerFactory serializerFactory,
+            IUserInputParser userInputParser)
+            : base(serializerFactory, userInputParser)
+        {
+        }
+
         public override ProductsRoot DeserializeFileContent(string fileName)
         {
             var fileContent = FileHelper.GetContent(fileName);
+            var serializer = ResolveSerializer(fileName);
 
-            var deserializer = new Deserializer();
-            var products = deserializer.Deserialize<List<Product>>(fileContent);
             return new ProductsRoot()
             {
-                Products = products
+                Products = serializer.Deserialize<List<Product>>(fileContent)
             };
         }
 
