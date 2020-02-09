@@ -19,3 +19,4 @@ To run the unit tests:
 
 - Go to https://github.com/prateek18aug/saas-products-import/tree/master/database-assignment
 - Readme.md contains all the answers
+- If you face any issues while running queries then use: https://www.db-fiddle.com/ 
